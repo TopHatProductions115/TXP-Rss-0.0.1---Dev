@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<title>Beta Test for new RSS Feed code</title>
+
+<head>
+
+<script type="text/javascript">
+function rssreader(url , feed){
+    var rssurl = document.getElementById("url");
+    var rss = rssurl.options[rssurl.selectedIndex].value;
+    var xml = rss;
+    var xmlDoc = new DOMDocument();
+    xmlDoc.load(xml);
+    var channel = xmlDoc.getElementsByTagName('channel').item(0);
+    var channel_title = channel.getElementsByTagName('title').item(0).childNodes.item(0).nodeValue;
+    var channel_link = channel.getElementsByTagName('link').item(0).childNodes.item(0).nodeValue;
+    var channel_desc = channel.getElementsByTagName('description').item(0).childNodes.item(0).nodeValue;
+    document.write(("<p><a href='" + "" + channel_link + "" + "'>" + "" + channel_title + "" + "</a>"));
+    document.write(("<br>"));
+    document.write((channel_desc + "" + "</p>"));
+    var x = xmlDoc.getElementsByTagName('item');
+    for(var i = 0;
+    i <= 2;
+    i ++){
+        var item_title = x.item(i).getElementsByTagName('title').item(0).childNodes.item(0).nodeValue;
+        var item_link = x.item(i).getElementsByTagName('link').item(0).childNodes.item(0).nodeValue;
+        var item_desc = x.item(i).getElementsByTagName('description').item(0).childNodes.item(0).nodeValue;
+        document.write(("<p><a href='" + "" + item_link + "" + "'>" + "" + item_title + "" + "</a>"));
+        document.write(("<br>"));
+        document.write((item_desc + "" + "</p>"));
+    }
+};
+</script>
+
+<header>Do not copy this code without getting express permission from TXP-Admin</header>
+<br/>
+<br/>
+<h1>New RSS Feed Design Under Development...</h1>
+</head>
+
+<body>
+<form action="rssreader(url, feed)" name="feed" method="post">
+<select id="url" size="1" form="feed">
+<option value="http://news.google.com/news?ned=us&topic=h&output=rss">Google News</option>
+<option value="url2">name2</option>
+<option value="url3">name3</option>
+</select>
+<input TYPE="button" VALUE="Go!" onClick="rssreader(url, feed)">
+</form>
+</body>
+
+<footer>
+<h4>This page may or may not be stable for sustained use; do not use this page for permenant content; development purposes only.</h4>
+</footer>
+
+</html>

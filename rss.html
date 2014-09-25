@@ -1,0 +1,26 @@
+<html>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+</script>
+
+<ifModule mod_headers.c>
+Header set Access-Control-Allow-Origin: * 
+</ifModule>
+
+<form id="rss" method="post" name="rss" action="RSS.js">
+<select name="rss" id="rss" size="1">
+
+<option value="http://www.crh.noaa.gov/images/mqt/rss/mqtFWF.xml">Weather Images</option>
+<option value="http://w1.weather.gov/xml/current_obs/index.xml">The NOAA: Current Observations</option>
+<option value="http://pafc.arh.noaa.gov/rss/tvwx.php?temps=1">The NOAA: Temperatures</option>
+<option value="http://pafc.arh.noaa.gov/rss/tvwx.php?aviation=1">The NOAA: Aviation Conditions</option>
+<option value="http://pafc.arh.noaa.gov/rss/tvwx.php?marine=1">The NOAA: Marine Conditions</option>
+<option value="http://www.wrh.noaa.gov/FXC/wxstory.php?output=xml">Weather Link 1</option>
+<option value="http://pafc.arh.noaa.gov/rss/tvwx.php">Weather Link 2</option>
+
+</select>
+<input type="button" onclick="TXP_RSS()" value="RSS">
+
+</form>
+
+</html>
